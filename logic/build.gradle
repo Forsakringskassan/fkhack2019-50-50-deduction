@@ -1,0 +1,26 @@
+//-*- coding: utf-8 -*-
+plugins {
+    id 'java'
+    id 'io.quarkus' version '0.15.0'
+    //id 'groovy'
+}
+
+test {
+  useJUnitPlatform()
+}
+
+dependencies {
+    implementation(enforcedPlatform('io.quarkus:quarkus-bom:0.15.0'))
+    implementation('io.quarkus:quarkus-resteasy')
+    implementation('io.quarkus:quarkus-resteasy-jsonb')
+    
+    testCompile group: 'io.quarkus', name: 'quarkus-junit5', version: '0.15.0'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
+
+
+    // for spock
+    //testCompile libs.groovy_all
+    //testCompile libs.spock_core
+    //testCompile libs.cglib_nodep
+    //testCompile libs.objenesis
+}
